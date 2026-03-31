@@ -1,11 +1,13 @@
 from langchain_ollama import ChatOllama
+from config import MODEL_NAME, TEMPERATURE, SYSTEM_PROMPT
+
 
 def main():
 
     # Criando uma instância do modelo Ollama
     llm = ChatOllama(
-        model= "qwen2.5:3b",
-        temperature=0.3
+        model=MODEL_NAME,
+        temperature=TEMPERATURE
     )
 
     # Identidade do Agente
@@ -13,7 +15,7 @@ def main():
     mensagem =[
         (
             "system",
-            "Você é um assistente de IA útil e prestativo. Responda às perguntas de forma clara e concisa."
+            SYSTEM_PROMPT
         )
     ]
 
